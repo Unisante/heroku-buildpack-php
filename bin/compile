@@ -26,7 +26,7 @@ source $bp_dir/bin/util/common.sh
 # we do not 'set -o errtrace', because that would cause subshell failures to fire the trap twice, e.g. with someval=$(func_that_fails)
 trap 'err_trap' ERR
 
-s3_url="https://github.com/Unisante/heroku-buildpack-php/raw/main/assets/"
+s3_url="https://github.com/Unisante/heroku-buildpack-php-assets/raw/master/assets/"
 # stdlib
 # download to a file first, as the function restarts the entire download on code 18 connection reset (not all servers support -C)
 curl_retry_on_18 --retry-connrefused --retry 3 --connect-timeout 5 --fail --silent --location -o $bp_dir/bin/util/stdlib.sh  "${s3_url}stdlib.sh" || {
